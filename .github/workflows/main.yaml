@@ -61,5 +61,7 @@ jobs:
           args: kubernetes cluster kubeconfig show k8s-bandsy > $GITHUB_WORKSPACE/.kubeconfig
       - name: install helm
         run: curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 && chmod 700 get_helm.sh && ./get_helm.sh
+      - name: helm init
+        run: helm init --client-only --kubeconfig=$GITHUB_WORKSPACE/.kubeconfig
       - name: helm install
         run: helm install nonce-service ./chart
