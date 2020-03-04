@@ -4,7 +4,7 @@ const buildFastify = (settings = {}) => {
   const fastify = Fastify(settings);
 
   fastify.get("/", async () => ({
-    nonce: "strokey nonce",
+    nonce: "strokey nonce faggot",
   }));
 
   return fastify;
