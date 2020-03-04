@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nonce-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nonce-service
+  template:
+    metadata:
+      labels:
+        app: nonce-service
+    spec:
+      containers:
+      - name: hello-kubernetes
+        image: feinwaru/nonce-service:latest
+        ports:
+        - containerPort: 3000
