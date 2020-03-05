@@ -15,5 +15,6 @@ spec:
       containers:
       - name: {{ .Release.Name }}
         image: bandsy/{{ .Release.Name }}:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 3000

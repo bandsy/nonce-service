@@ -1,6 +1,6 @@
 {
   "name": "nonce-service",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Test project for setting up CI/CD with Kubernetes",
   "author": {
     "name": "Feinwaru",

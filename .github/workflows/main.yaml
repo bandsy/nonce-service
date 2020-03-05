@@ -44,7 +44,7 @@ jobs:
         run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
       - name: Build docker image
         run: docker build -t ${{ github.event.repository.name }} .
-      - name: docker tag
+      - name: Docker tag
         run: |
           docker tag ${{ github.event.repository.name }} bandsy/${{ github.event.repository.name }}:${{ github.sha }}
           docker tag ${{ github.event.repository.name }} bandsy/${{ github.event.repository.name }}:latest
