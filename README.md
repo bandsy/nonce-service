@@ -20,3 +20,4 @@ Making a new service:
 
 TODO: better project name consistency and versioning stuff
 TODO: git hooks for (linting, tests, build)
+TODO: switch from docker hub to github packages 
