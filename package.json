@@ -2,7 +2,11 @@
   "name": "nonce-service",
   "version": "0.1.0",
   "description": "Test project for setting up CI/CD with Kubernetes",
-  "author": "Dragon1320",
+  "author": {
+    "name": "Feinwaru",
+    "email": "feinwaru@gmail.com",
+    "url": "https://feinwaru.com"
+  },
   "license": "UNLICENSED",
   "private": true,
   "scripts": {

@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nonce-service
+  name: {{ .Release.Name }}
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: nonce-service
+      app: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: nonce-service
+        app: {{ .Release.Name }}
     spec:
       containers:
-      - name: hello-kubernetes
-        image: feinwaru/nonce-service:latest
+      - name: {{ .Release.Name }}
+        image: bandsy/{{ .Release.Name }}:latest
         ports:
         - containerPort: 3000
