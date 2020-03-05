@@ -3,7 +3,12 @@ kind: Deployment
 metadata:
   name: {{ .Release.Name }}
 spec:
-  replicas: 1
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 50%
+      maxSurge: 1
   selector:
     matchLabels:
       app: {{ .Release.Name }}
@@ -15,6 +20,12 @@ spec:
       containers:
       - name: {{ .Release.Name }}
         image: bandsy/{{ .Release.Name }}:latest
-        imagePullPolicy: Always
         ports:
         - containerPort: 3000
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1

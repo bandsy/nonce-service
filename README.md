@@ -18,3 +18,5 @@ Making a new service:
     - appVersion
 - create a .env file for dev env variables
 
+TODO: better project name consistency and versioning stuff
+TODO: git hooks for (linting, tests, build)
