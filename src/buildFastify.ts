@@ -5,7 +5,8 @@ const buildFastify = (settings = {}) => {
 
   fastify.get("/", async () => ({
     nonce: "strokey nonce faggot",
-    test: "ur ma",
+    gay: "cunty mcjim",
+    aids: "rawrxd",
   }));
 
   return fastify;
