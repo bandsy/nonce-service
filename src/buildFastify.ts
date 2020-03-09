@@ -45,7 +45,17 @@ db.on("error", console.error);
 db.on("open", () => console.log("db conn"));
 
 // postgres
-const pgClient = new PostgresClient();
+const {
+  PGUSER,
+  PGPASSWORD,
+  PGHOST,
+  PGPORT,
+  PGDATABASE,
+} = process.env;
+
+const postgresUrl = `postgres://${PGUSER}:${PGPASSWORD}@${PGHOST}:${PGPORT}/${PGDATABASE}`;
+
+const pgClient = new PostgresClient(postgresUrl);
 pgClient.connect();
 
 const buildFastify = (settings = {}) => {
