@@ -62,3 +62,28 @@ spec:
             configMapKeyRef:
               key: MONGO_REPLICASET
               name: {{ .Release.Name }}-config
+        - name: PGUSER
+          valueFrom:
+            secretKeyRef:
+              key: PGUSER
+              name: {{ .Release.Name }}-auth
+        - name: PGPASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: PGPASSWORD
+              name: {{ .Release.Name }}-auth
+        - name: PGHOST
+          valueFrom:
+            configMapKeyRef:
+              key: PGHOST
+              name: {{ .Release.Name }}-config
+        - name: PGPORT
+          valueFrom:
+            configMapKeyRef:
+              key: PGPORT
+              name: {{ .Release.Name }}-config
+        - name: PGDATABASE
+          valueFrom:
+            configMapKeyRef:
+              key: PGDATABASE
+              name: {{ .Release.Name }}-config

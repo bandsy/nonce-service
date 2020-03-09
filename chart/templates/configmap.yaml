@@ -7,3 +7,6 @@ data:
   MONGO_PORT: "27017"
   MONGO_DB: "strokey-nonce"
   MONGO_REPLICASET: "db"
+  PGHOST: "postgres"
+  PGPORT: "5432"
+  PGDATABASE: strokey-nonce

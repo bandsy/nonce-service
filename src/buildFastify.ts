@@ -3,7 +3,10 @@ import Fastify from "fastify";
 // disable unused vars until i get typescript 3.8 to work properly...
 // eslint-disable-next-line no-unused-vars
 import mongoose, { Document, Schema, model } from "mongoose";
+// eslint-disable-next-line import/no-unresolved
+import { Client as PostgresClient } from "pg";
 
+// mongo
 interface INonce {
   name: string,
   number?: number,
@@ -41,6 +44,10 @@ db.on("error", console.error);
 // eslint-disable-next-line no-console
 db.on("open", () => console.log("db conn"));
 
+// postgres
+const pgClient = new PostgresClient();
+pgClient.connect();
+
 const buildFastify = (settings = {}) => {
   const fastify = Fastify(settings);
 
@@ -49,6 +56,14 @@ const buildFastify = (settings = {}) => {
     gay: "cunty mcjim",
     aids: "yyyyyyyyy",
   }));
+
+  fastify.get("/postgres", async () => {
+    const dbRes = await pgClient.query("SELECT $1::text as message", ["cunty mcjim"]);
+
+    return {
+      message: dbRes.rows[0].message,
+    };
+  });
 
   fastify.get("/nonce", async () => NonceModel.find());
   fastify.post("/nonce", async (request) => new NonceModel(request.body).save());
