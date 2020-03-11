@@ -53,9 +53,12 @@ const {
   PGDATABASE,
 } = process.env;
 
+// note: the conn string gets ignored completely by this shitty postgres lib
 const postgresUrl = `postgres://${PGUSER}:${PGPASSWORD}@${PGHOST}:${PGPORT}/${PGDATABASE}`;
 
-const pgClient = new PostgresClient(postgresUrl);
+const pgClient = new PostgresClient({
+  connectionString: postgresUrl,
+});
 pgClient.connect();
 
 const buildFastify = (settings = {}) => {
