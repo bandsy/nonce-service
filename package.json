@@ -1,8 +1,12 @@
 {
   "name": "nonce-service",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Test project for setting up CI/CD with Kubernetes",
-  "author": "Dragon1320",
+  "author": {
+    "name": "Feinwaru",
+    "email": "feinwaru@gmail.com",
+    "url": "https://feinwaru.com"
+  },
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
@@ -19,7 +23,9 @@
   },
   "devDependencies": {
     "@types/jest": "^25.1.1",
+    "@types/mongoose": "^5.7.3",
     "@types/node": "^13.5.3",
+    "@types/pg": "^7.14.1",
     "@types/source-map-support": "^0.5.1",
     "@typescript-eslint/eslint-plugin": "^2.22.0",
     "@typescript-eslint/parser": "^2.22.0",
@@ -31,10 +37,12 @@
     "serve": "^11.3.0",
     "source-map-support": "^0.5.16",
     "ts-jest": "^25.1.0",
-    "typescript": "^3.7.5"
+    "typescript": "^3.8.3"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
-    "fastify": "^2.12.1"
+    "fastify": "^2.12.1",
+    "mongoose": "^5.9.3",
+    "pg": "^7.18.2"
   }
 }

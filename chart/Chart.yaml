@@ -4,5 +4,7 @@ description: Test project for setting up CI/CD with Kubernetes
 
 type: application
 
-version: 0.1.0
-appVersion: 0.1.0
+# chart version
+version: 0.1.2
+# app version
+appVersion: 0.1.2
